@@ -206,7 +206,7 @@ func (t *Tokener) inspectToken(ctx context.Context, token string) (jwt.MapClaims
 	record, err := t.Store.Get(ctx, t.revokeKey(token))
 	if err != nil {
 		// If the token was not revoked than the error would be of store.ErrValueNotFound.
-		if errors.Is(err, store.ErrValueNotFound) {
+		if errors.Is(err, store.ErrRecordNotFound) {
 			return claims, nil
 		}
 		log.Errorf("Getting token info from store failed: %v", err)
