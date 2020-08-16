@@ -119,7 +119,7 @@ func (t *Tokener) Token(account auth.Account, options ...auth.TokenOption) (auth
 	}
 
 	if account == nil {
-		return auth.Token{}, errors.Wrap(auth.ErrAuthenticationNoRequiredOption, "provided no account in the token creation")
+		return auth.Token{}, errors.Wrap(auth.ErrNoRequiredOption, "provided no account in the token creation")
 	}
 
 	// Set the claims for the full token.
